@@ -1,4 +1,3 @@
-import "./App.css";
 import Register from "./Components/Register/Register";
 import Navbar from "./Components/Navbar";
 
