@@ -143,42 +143,20 @@ const Usluge = () => {
 
   const [filterSelec, setFilterSelec] = useState("");
 
-  lekari;
-  let psihoterapijeFiltered = psihoterapije;
-  let grupnaAnalitičkaPsihoterpijaFiltered = grupnaAnalitičkaPsihoterpija;
-  let porodičnaPsihoanalizaFiltered = porodičnaPsihoanaliza;
-  let psihijatrijaDeceFiltered = psihijatrijaDece;
-
-  psihoterapijeFiltered = filterSelec
+  const psihoterapijeFiltered = filterSelec
     ? psihoterapije.filter((item) => item.lekari.includes(filterSelec))
     : psihoterapije;
-  grupnaAnalitičkaPsihoterpijaFiltered = filterSelec
+  const grupnaAnalitičkaPsihoterpijaFiltered = filterSelec
     ? grupnaAnalitičkaPsihoterpija.filter((item) =>
         item.lekari.includes(filterSelec)
       )
     : grupnaAnalitičkaPsihoterpija;
-  porodičnaPsihoanalizaFiltered = filterSelec
+  const porodičnaPsihoanalizaFiltered = filterSelec
     ? porodičnaPsihoanaliza.filter((item) => item.lekari.includes(filterSelec))
     : porodičnaPsihoanaliza;
-  psihijatrijaDeceFiltered = filterSelec
+  const psihijatrijaDeceFiltered = filterSelec
     ? psihijatrijaDece.filter((item) => item.lekari.includes(filterSelec))
     : psihijatrijaDece;
-  // filterSelec === "Svi lekari"
-  //   ? (grupnaAnalitičkaPsihoterpijaFiltered = grupnaAnalitičkaPsihoterpija)
-  //   : (grupnaAnalitičkaPsihoterpijaFiltered =
-  //       grupnaAnalitičkaPsihoterpija.filter((item) =>
-  //         item.lekari.includes(filterSelec)
-  //       ));
-  // filterSelec === "Svi lekari"
-  //   ? (porodičnaPsihoanalizaFiltered = porodičnaPsihoanaliza)
-  //   : (porodičnaPsihoanalizaFiltered = porodičnaPsihoanaliza.filter((item) =>
-  //       item.lekari.includes(filterSelec)
-  //     ));
-  // filterSelec === "Svi lekari"
-  //   ? (psihijatrijaDeceFiltered = psihijatrijaDece)
-  //   : (psihijatrijaDeceFiltered = psihijatrijaDece.filter((item) =>
-  //       item.lekari.includes(filterSelec)
-  //     ));
 
   return (
     <div id="uslugeMain">
