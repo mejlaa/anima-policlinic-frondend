@@ -1,3 +1,4 @@
+
 import "./App.css";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Admin from "./Pages/Admin/Admin";
@@ -17,6 +18,8 @@ function App() {
 
         <Footer />
       </BrowserRouter>
+
+
     </div>
   );
 }
