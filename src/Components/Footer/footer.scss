@@ -15,14 +15,13 @@ h3 {
   margin: 0;
 }
 .FieldAboveLine {
+  display: flex;
   width: 95%;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid gainsboro;
 }
-.FieldAboveLine {
-  display: flex;
-}
+
 .WorkTime {
   width: 20%;
 }

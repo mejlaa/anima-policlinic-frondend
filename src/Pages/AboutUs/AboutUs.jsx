@@ -5,13 +5,11 @@ import "./AboutUs.scss";
 const AboutUs = () => {
   return (
     <div id="AboutUsMain">
-      {/* pocetna slika sa tekstom "O nama" */}
       <div className="oNamaImgDiv">
         <img className="FirstImgAboutUs" src="onama.jpg" alt="O nama" />
         <h1>O nama</h1>
       </div>
 
-      {/* polje "ZASTO MI" */}
       <h1 className="naslov">Zašto mi?</h1>
       <div className="ZastoMiDiv">
         <div className="ZastoMiLeftDiv">
@@ -58,7 +56,6 @@ const AboutUs = () => {
         <img className="ZastoMiImg2" src="zastoMiImg2.jpg" alt="slika" />
       </div>
 
-      {/* polje pod nazivim "Upoznajte nas tim" */}
       <div className="OurTeamDiv">
         <h1 className="naslov">Upoznajte naš tim</h1>
         <div className="drFiledDiv">
@@ -99,7 +96,6 @@ const AboutUs = () => {
         <button>Više o timu</button>
       </div>
 
-      {/* polje posd nazivom "USLUGE" */}
       <div className="TerapyField">
         <h1 className="naslov">Usluge</h1>
         <div className="TherapyDiv">
@@ -131,7 +127,6 @@ const AboutUs = () => {
         <button>Više o uslugama</button>
       </div>
 
-      {/* PROZOR na kraju,pre futera */}
       <div className="window">
         <div>
           <h1>Potražite stučnu praksu</h1>

@@ -3,6 +3,7 @@ import Admin from "./Pages/Admin/Admin";
 import Footer from "./Components/Footer/Footer";
 import Usluge from "./Pages/Usluge/Usluge";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "./globalElements.scss";
 
 function App() {
   return (

@@ -321,21 +321,17 @@ const Admin = () => {
       status: "aktivan",
     },
   ]);
-  //state za koji nosi podatke sa stranice koji mogu da se menjaju,ovo ce da bude globalna promenljiva
-  const [value, setValue] = useState({
-    admin: {},
+  const [admiPersonalInformations, setAdmiPersonalInformations] = useState({
+    ime: "Mejla Ugljanin",
+    email: "mejla.u@gmail.com",
+    sifra: "014asdasx43",
   });
 
   const [prikaz, setPrikaz] = useState("korisnici");
-  let u = user;
-  let d = doctor;
-  let t = terapije;
-  let k = korisnici;
 
   return (
     <div id="adminMain">
       <div className="WorkSpace">
-        {/* admin Meni ,leva strana*/}
         <div className="WorkSpaceMeniDiv">
           <div className="AdminMeniTitle">
             <h3>Admin</h3>
@@ -403,13 +399,12 @@ const Admin = () => {
             </div>
           </div>
         </div>
-        {/* desna strana za prikaz  */}
         <div className="ListeDiv">
           {prikaz === "korisnici" ? (
             <div className="listaKorisnika">
               <h1>Lista korisnika</h1>
               <div className="DivForUserCards">
-                {k.map((item, index) => {
+                {korisnici.map((item, index) => {
                   return (
                     <div key={index} className="userCard">
                       <div>
@@ -465,7 +460,7 @@ const Admin = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {u.map((item, index) => {
+                    {user.map((item, index) => {
                       return (
                         <tr key={index}>
                           <td>{item.ime}</td>
@@ -484,7 +479,7 @@ const Admin = () => {
             <div className="listaDoktora">
               <h1>Lista doktora</h1>
               <div className="DivForDoktorCards">
-                {d.map((item, index) => {
+                {doctor.map((item, index) => {
                   return (
                     <div key={index} className="doctorCard">
                       <img src={item.slika} />
@@ -510,7 +505,7 @@ const Admin = () => {
             <div className="listaTerapija">
               <h1>Lista terapija</h1>
               <div className="DivForTherapyCards">
-                {t.map((item, index) => {
+                {terapije.map((item, index) => {
                   return (
                     <div key={index} className="therapyCard">
                       <img src={item.slika} />
@@ -545,7 +540,7 @@ const Admin = () => {
               <div className="adminInfo">
                 <div className="adminName">
                   <div></div>
-                  <h2> Mirela Ličina </h2>
+                  <h2> {admiPersonalInformations.ime} </h2>
                   <div>
                     <img className="editIcon" src="edit.png" />
                     <p>edit</p>
@@ -553,7 +548,7 @@ const Admin = () => {
                 </div>
                 <div className="otherInfo">
                   <h4>
-                    <strong>Email:</strong> admin1@gmail.com
+                    <strong>Email:</strong> {admiPersonalInformations.email}
                   </h4>
                   <div>
                     <img className="editIcon" src="edit.png" />
@@ -562,7 +557,7 @@ const Admin = () => {
                 </div>
                 <div className="otherInfo">
                   <h4>
-                    <strong>Šifra:</strong> Admin1232
+                    <strong>Šifra:</strong> {admiPersonalInformations.sifra}
                   </h4>
                   <div>
                     <img className="editIcon" src="edit.png" />
@@ -572,8 +567,6 @@ const Admin = () => {
               </div>
             </div>
           ) : null}
-
-          {/**/}
         </div>
       </div>
     </div>

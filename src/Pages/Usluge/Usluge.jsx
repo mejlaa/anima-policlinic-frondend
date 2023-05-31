@@ -115,7 +115,6 @@ const Usluge = () => {
   ]);
 
   const [lekari, setLekari] = useState([
-    "Svi lekari",
     "Dr.Dragana Perla",
     "Dr.Omer Sadiković",
     "Dr.Jovan Jeremeić",
@@ -142,26 +141,44 @@ const Usluge = () => {
 
   const [dropDownClick, setDropDownClick] = useState(false);
 
-  const [filterSelec, setFilterSelec] = useState("Svi lekari");
+  const [filterSelec, setFilterSelec] = useState("");
 
-  let l = lekari;
-  let p1 = psihoterapije;
-  let p2 = grupnaAnalitičkaPsihoterpija;
-  let p3 = porodičnaPsihoanaliza;
-  let p4 = psihijatrijaDece;
+  lekari;
+  let psihoterapijeFiltered = psihoterapije;
+  let grupnaAnalitičkaPsihoterpijaFiltered = grupnaAnalitičkaPsihoterpija;
+  let porodičnaPsihoanalizaFiltered = porodičnaPsihoanaliza;
+  let psihijatrijaDeceFiltered = psihijatrijaDece;
 
-  filterSelec === "Svi lekari"
-    ? (p1 = p1)
-    : (p1 = p1.filter((item) => item.lekari.includes(filterSelec)));
-  filterSelec === "Svi lekari"
-    ? (p2 = p2)
-    : (p2 = p2.filter((item) => item.lekari.includes(filterSelec)));
-  filterSelec === "Svi lekari"
-    ? (p3 = p3)
-    : (p3 = p3.filter((item) => item.lekari.includes(filterSelec)));
-  filterSelec === "Svi lekari"
-    ? (p4 = p4)
-    : (p4 = p4.filter((item) => item.lekari.includes(filterSelec)));
+  psihoterapijeFiltered = filterSelec
+    ? psihoterapije.filter((item) => item.lekari.includes(filterSelec))
+    : psihoterapije;
+  grupnaAnalitičkaPsihoterpijaFiltered = filterSelec
+    ? grupnaAnalitičkaPsihoterpija.filter((item) =>
+        item.lekari.includes(filterSelec)
+      )
+    : grupnaAnalitičkaPsihoterpija;
+  porodičnaPsihoanalizaFiltered = filterSelec
+    ? porodičnaPsihoanaliza.filter((item) => item.lekari.includes(filterSelec))
+    : porodičnaPsihoanaliza;
+  psihijatrijaDeceFiltered = filterSelec
+    ? psihijatrijaDece.filter((item) => item.lekari.includes(filterSelec))
+    : psihijatrijaDece;
+  // filterSelec === "Svi lekari"
+  //   ? (grupnaAnalitičkaPsihoterpijaFiltered = grupnaAnalitičkaPsihoterpija)
+  //   : (grupnaAnalitičkaPsihoterpijaFiltered =
+  //       grupnaAnalitičkaPsihoterpija.filter((item) =>
+  //         item.lekari.includes(filterSelec)
+  //       ));
+  // filterSelec === "Svi lekari"
+  //   ? (porodičnaPsihoanalizaFiltered = porodičnaPsihoanaliza)
+  //   : (porodičnaPsihoanalizaFiltered = porodičnaPsihoanaliza.filter((item) =>
+  //       item.lekari.includes(filterSelec)
+  //     ));
+  // filterSelec === "Svi lekari"
+  //   ? (psihijatrijaDeceFiltered = psihijatrijaDece)
+  //   : (psihijatrijaDeceFiltered = psihijatrijaDece.filter((item) =>
+  //       item.lekari.includes(filterSelec)
+  //     ));
 
   return (
     <div id="uslugeMain">
@@ -169,8 +186,6 @@ const Usluge = () => {
         <img src="uslugePrva.jpg" alt="aaa" />
         <h1>Usluge</h1>
       </div>
-
-      {/* div sa svim klasama terapija */}
 
       <div className="TherapyClasses">
         <a href="#PsihoterapijeDiv">
@@ -199,7 +214,6 @@ const Usluge = () => {
         </a>
       </div>
 
-      {/* Filter polje  */}
       <div className="filterDiv">
         <div className="filterDivText">
           <p>
@@ -218,13 +232,23 @@ const Usluge = () => {
             }}
             className="dropDownFirstField"
           >
-            <p>{filterSelec}</p>
+            <p>{filterSelec === "" ? "Svi lekari" : filterSelec}</p>
 
             <img src={dropDownClick ? "up.png" : "down.png"} alt="icon" />
           </div>
           <div className="DropDownScrollDiv">
+            {dropDownClick ? (
+              <div
+                onClick={() => {
+                  setFilterSelec("");
+                  setDropDownClick(!dropDownClick);
+                }}
+              >
+                <p>Svi lekari</p>
+              </div>
+            ) : null}
             {dropDownClick
-              ? l.map((item, index) => {
+              ? lekari.map((item, index) => {
                   return (
                     <div
                       onClick={() => {
@@ -241,11 +265,11 @@ const Usluge = () => {
           </div>
         </div>
       </div>
-      {/* Lista terapija "Psihoterpije" */}
 
       <div id="PsihoterapijeDiv">
         <h1 className="naslovUsluge">Psihoterapija</h1>
-        {p1.map((item, index) => {
+
+        {psihoterapijeFiltered.map((item, index) => {
           return (
             <div
               key={index}
@@ -278,12 +302,10 @@ const Usluge = () => {
           );
         })}
       </div>
-
-      {/* Lista terapija "Grupne Analitičke Psihoterpije" */}
 
       <div id="GrupnaAnalitičkaPsihoterpijaDiv">
         <h1 className="naslovUsluge">Grupna analitička psihoterpija</h1>
-        {p2.map((item, index) => {
+        {grupnaAnalitičkaPsihoterpijaFiltered.map((item, index) => {
           return (
             <div
               key={index}
@@ -316,12 +338,10 @@ const Usluge = () => {
           );
         })}
       </div>
-
-      {/* Lista terapija "Porodična psihoanaliza" */}
 
       <div id="PorodičnaPsihoanalizaDiv">
         <h1 id="naslovUsluge">Porodična psihoanaliza</h1>
-        {p3.map((item, index) => {
+        {porodičnaPsihoanalizaFiltered.map((item, index) => {
           return (
             <div
               key={index}
@@ -355,11 +375,9 @@ const Usluge = () => {
         })}
       </div>
 
-      {/* Lista terapija "Psihijatrija dece" */}
-
       <div id="PsihijatrijaDeceDiv">
         <h1 className="naslovUsluge">Psihijatrija dece</h1>
-        {p4.map((item, index) => {
+        {psihijatrijaDeceFiltered.map((item, index) => {
           return (
             <div
               key={index}
