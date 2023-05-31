@@ -1,5 +1,3 @@
-
-import "./App.css";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Admin from "./Pages/Admin/Admin";
 import Footer from "./Components/Footer/Footer";
@@ -18,8 +16,6 @@ function App() {
 
         <Footer />
       </BrowserRouter>
-
-
     </div>
   );
 }
