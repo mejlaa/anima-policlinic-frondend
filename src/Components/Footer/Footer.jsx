@@ -1,13 +1,14 @@
 import "./footer.scss";
 import { Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div id="footer">
       <div className="FieldAboveLine">
         <div className="FooterMeni">
-          <Link to={"aboutUs"}>O nama</Link>
-          <Link to={"admin"}>Admin page</Link>
+          <Link to={"/aboutUs"}>O nama</Link>
+          <Link to={"/admin"}>Admin page</Link>
           <Link to={"/"}>Usluge</Link>
           <a href="#">Kontak</a>
         </div>

@@ -1,10 +1,105 @@
 import React from "react";
 import Footer from "../../Components/Footer/Footer";
+import Navbar from "../../Components/Navbar";
+import { Link } from "react-router-dom";
 import "./AboutUs.scss";
+import { useState } from "react";
 
 const AboutUs = () => {
+  const [uprava, setUprava] = useState([
+    {
+      ime: "Milena Jović",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "dr1.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Neuropsihijatar, psihoterapeut",
+      id: 1,
+      pozicija: "Vlasnik",
+    },
+    {
+      ime: "Jovan Jeremić",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "dr2.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Psihijatar, psihoterapeut",
+      pozicija: "Direktor",
+
+      id: 2,
+    },
+
+    {
+      ime: "Dragana Perla",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "dr4.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "",
+      pozicija: "Menadzer",
+
+      id: 4,
+    },
+  ]);
+  const [lekari, setLekari] = useState([
+    {
+      ime: "Dragana Perla",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "osoblje1.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Psihijatar",
+      id: 4,
+    },
+    {
+      ime: "Dragana Perla",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "osoblje2.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Psihijatar",
+      id: 4,
+    },
+    {
+      ime: "Dragana Perla",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "osoblje3.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Psihijatar",
+      id: 4,
+    },
+    {
+      ime: "Dragana Perla",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "osoblje4.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Psihijatar",
+      id: 4,
+    },
+    {
+      ime: "Dragana Perla",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "osoblje5.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Psihijatar",
+      id: 4,
+    },
+    {
+      ime: "Dragana Perla",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "osoblje6.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Psihijatar",
+      id: 4,
+    },
+    {
+      ime: "Dragana Perla",
+      opis: " Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium ratione assumenda eveniet ea unde, quisquam architecto minus saepe voluptatum laborum! Nulla, earum sit consequuntur adipisci eum autem corrupti doloribus odio?",
+      slika: "osoblje7.png",
+      terapije: ["Psihoanaliza", "Decija psihijatrija"],
+      zvanje: "Psihijatar",
+
+      id: 4,
+    },
+  ]);
   return (
     <div id="AboutUsMain">
+      <Navbar />
       <div className="oNamaImgDiv">
         <img className="FirstImgAboutUs" src="onama.jpg" alt="O nama" />
         <h1>O nama</h1>
@@ -59,37 +154,28 @@ const AboutUs = () => {
       <div className="OurTeamDiv">
         <h1 className="naslov">Upoznajte naš tim</h1>
         <div className="drFiledDiv">
-          <div className="drCard">
-            <img className="imageOfDr" src="dr1.png" alt="Dr.Milena Jović" />
-            <h3>Milena Jović</h3>
-            <p>Neuropsihijatar, psihoterapeut</p>
-          </div>
-          <div className="drCard">
-            <img className="imageOfDr" src="dr2.png" alt="Dr.Jovan Jeremeić" />
-            <h3>Jovan Jeremeić </h3>
-            <p>Psihijatar, psihoterapeut</p>
-          </div>
-          <div className="drCard">
-            <img className="imageOfDr" src="dr3.png" alt="Dr.Omer Sadiković" />
-            <h3>Omer Sadiković Jovan Jeremeić Milena Jović</h3>
-            <p>Dečji i adolescentni neuropsihijatar</p>
-          </div>
-          <div className="drCard">
-            <img className="imageOfDr" src="dr4.png" alt="Dr.Dragana Perla" />
-            <h3>Dragana Perla</h3>
-            <p>Psihijatar</p>
-          </div>
+          {uprava.map((i, index) => {
+            return (
+              <div key={index} className="drCard">
+                <img
+                  className="imageOfDr"
+                  src={i.slika}
+                  alt="Dr.Milena Jović"
+                />
+                <h3>{i.ime}</h3>
+                <h4>{i.pozicija}</h4>
+                <p>{i.zvanje}</p>
+              </div>
+            );
+          })}
         </div>
         <div className="ProfessionalStaffDiv">
           <h1 className="naslov">Stručno osoblje</h1>
           <div className="ProfessionalStaffImagesDiv">
-            <img className="StaffImg" src="osoblje1.png" alt="o1" />
-            <img className="StaffImg" src="osoblje2.png" alt="o1" />
-            <img className="StaffImg" src="osoblje3.png" alt="o1" />
-            <img className="StaffImg" src="osoblje4.png" alt="o1" />
-            <img className="StaffImg" src="osoblje5.png" alt="o1" />
-            <img className="StaffImg" src="osoblje6.png" alt="o1" />
-            <img className="StaffImg" src="osoblje7.png" alt="o1" />
+            {lekari.map((i, index) => {
+              return <img className="StaffImg" src={i.slika} alt="o1" />;
+            })}
+
             <img className="StaffImg" src="Admin.png" alt="o1" />
           </div>
         </div>
@@ -99,32 +185,35 @@ const AboutUs = () => {
       <div className="TerapyField">
         <h1 className="naslov">Usluge</h1>
         <div className="TherapyDiv">
-          <a href="#">
+          <Link to={"/usluge"}>
             <div className="TerapyCard">
               <img src="psihoterapija-usluge.png" alt="slika" />
               <p>Psihoterapija</p>
             </div>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to={"/usluge"}>
             <div className="TerapyCard">
               <img src="psiholoski kabinet.png" alt="slika" />
               <p>Grupna analitička psihoterpija</p>
             </div>
-          </a>
-          <a href="#">
+          </Link>
+          <Link to={"/usluge"}>
             <div className="TerapyCard">
               <img src="psihijatrijaDece.png" alt="slika" />
               <p>Porodična psihoanaliza</p>
             </div>
-          </a>
-          <a href="#">
+          </Link>
+
+          <Link to={"/usluge"}>
             <div className="TerapyCard">
               <img src="pedagosko.png" alt="slika" />
               <p>Psihijatrija dece</p>
             </div>
-          </a>
+          </Link>
         </div>
-        <button>Više o uslugama</button>
+        <Link to={"/usluge"}>
+          <button className="ViseOUslugamaDugme"> Više o uslugama</button>
+        </Link>
       </div>
 
       <div className="window">
@@ -134,6 +223,7 @@ const AboutUs = () => {
           <button>Zakaži termin</button>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
