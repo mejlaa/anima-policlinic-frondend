@@ -14,7 +14,7 @@ const Navbar = () => {
               <a href="#">Pocetna</a>
             </li>
             <li>
-              <Link to={"/aboutUs"}>O nama</Link>
+              <Link to={"/onama"}>O nama</Link>
             </li>
             <li>
               <Link to={"/usluge"}>Usluge</Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
         <Link className={"navLink"} to={"/korisnici"}>
           Kontrolna tabla
         </Link>
-       
+
         <button>
           <a href="#">Prijavi se</a>
         </button>
