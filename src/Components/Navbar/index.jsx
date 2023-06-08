@@ -34,10 +34,11 @@ const Navbar = () => {
         <Link className={"navLink"} to={"/korisnici"}>
           Kontrolna tabla
         </Link>
-
-        <button>
-          <a href="#">Prijavi se</a>
-        </button>
+        <Link to={"/prijava"}>
+          <button>
+            <p>Prijavi se </p>
+          </button>
+        </Link>
       </div>
     </div>
   );

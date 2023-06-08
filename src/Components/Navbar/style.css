@@ -66,12 +66,13 @@ body {
   margin-right: 10px;
 }
 .nav .menu-item2 button:hover {
+  cursor: pointer;
   border: 1px solid #1849fb;
 }
-.nav .menu-item2 button:hover a {
+.nav .menu-item2 button:hover p {
   color: #1849fb;
 }
-.nav .menu-item2 button a {
+.nav .menu-item2 button p {
   text-decoration: none;
   color: #18a0fb;
   font-size: 15px;

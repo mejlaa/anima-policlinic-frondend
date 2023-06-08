@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [userData, setUserData] = useState({});
@@ -63,6 +64,7 @@ const Login = () => {
       </div>
 
       <button>Prijavi se</button>
+      <Link to={"/registracija"}>Napravi svoj nalog</Link>
     </form>
   );
 };

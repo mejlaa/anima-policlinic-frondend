@@ -19,7 +19,6 @@ function App() {
         <Routes>
           <Route path="onama" element={<AboutUs />} />
           <Route path="usluge" element={<Usluge />} />
-
           <Route path="zahtevi" element={<Zahtevi />} />
           <Route path="terapije" element={<Terapije />} />
           <Route path="doktori" element={<Doktori />} />
