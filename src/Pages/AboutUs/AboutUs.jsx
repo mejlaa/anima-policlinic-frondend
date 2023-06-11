@@ -3,7 +3,7 @@ import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar";
 import { Link } from "react-router-dom";
 import "./AboutUs.scss";
-import Register from "../../Components/Register/Register";
+
 import { useState } from "react";
 
 const AboutUs = () => {
@@ -98,11 +98,9 @@ const AboutUs = () => {
       id: 4,
     },
   ]);
-  const [registerView, setView] = useState(false);
+
   return (
     <div id="AboutUsMain">
-      {registerView ? <Register /> : null}
-
       <Navbar />
       <div className="oNamaImgDiv">
         <img className="FirstImgAboutUs" src="onama.jpg" alt="O nama" />
@@ -177,7 +175,9 @@ const AboutUs = () => {
           <h1 className="naslov">Stručno osoblje</h1>
           <div className="ProfessionalStaffImagesDiv">
             {lekari.map((i, index) => {
-              return <img className="StaffImg" src={i.slika} alt="o1" />;
+              return (
+                <img key={index} className="StaffImg" src={i.slika} alt="o1" />
+              );
             })}
 
             <img className="StaffImg" src="Admin.png" alt="o1" />

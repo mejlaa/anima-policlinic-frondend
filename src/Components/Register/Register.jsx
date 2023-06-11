@@ -12,6 +12,7 @@ const Register = () => {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
   const [validSubmit, setValidSubmit] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -26,14 +27,14 @@ const Register = () => {
 
         if (response.data.success) {
           console.log(response);
-          toast.success("Uspesno ste obavili registraciju");
+          toast.success(response.data.massage);
         } else {
           console.log(response);
-          toast.error("Email adresa je vec u upotrebi");
+          toast.error(response.data.massage);
         }
       } else toast.error("Molimo vas unesite ispravne podatke");
     } catch (error) {
-      toast.error("Problem pri konekciji,pokusajte kasnije");
+      toast.error(response.data.massage);
       console.log(error);
     }
   };
@@ -103,7 +104,7 @@ const Register = () => {
   };
 
   return (
-    <div className="registerMain">
+    <div className="register">
       <form onSubmit={handleSubmit}>
         <h2>Registruj svoj besplatni nalog</h2>
 
