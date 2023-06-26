@@ -3,6 +3,7 @@ import Footer from "../../Components/Footer/Footer";
 import Navbar from "../../Components/Navbar";
 import { Link } from "react-router-dom";
 import "./AboutUs.scss";
+
 import { useState } from "react";
 
 const AboutUs = () => {
@@ -97,6 +98,7 @@ const AboutUs = () => {
       id: 4,
     },
   ]);
+
   return (
     <div id="AboutUsMain">
       <Navbar />
@@ -173,7 +175,9 @@ const AboutUs = () => {
           <h1 className="naslov">Stručno osoblje</h1>
           <div className="ProfessionalStaffImagesDiv">
             {lekari.map((i, index) => {
-              return <img className="StaffImg" src={i.slika} alt="o1" />;
+              return (
+                <img key={index} className="StaffImg" src={i.slika} alt="o1" />
+              );
             })}
 
             <img className="StaffImg" src="Admin.png" alt="o1" />

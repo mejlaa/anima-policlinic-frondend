@@ -7,7 +7,7 @@ const Footer = () => {
     <div id="footer">
       <div className="FieldAboveLine">
         <div className="FooterMeni">
-          <Link to={"/aboutUs"}>O nama</Link>
+          <Link to={"/onama"}>O nama</Link>
           <Link to={"/admin"}>Admin page</Link>
           <Link to={"/"}>Usluge</Link>
           <a href="#">Kontak</a>

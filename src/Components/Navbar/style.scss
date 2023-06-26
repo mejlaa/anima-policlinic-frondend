@@ -71,12 +71,13 @@ body {
       font-size: 15px;
       margin-right: 10px;
       &:hover {
+        cursor: pointer;
         border: 1px solid #1849fb;
-        a {
+        p {
           color: #1849fb;
         }
       }
-      a {
+      p {
         text-decoration: none;
         color: #18a0fb;
         font-size: 15px;
