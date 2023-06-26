@@ -3,34 +3,45 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { showLoading, hideLoading } from "../../redux/alertsSlice";
+import { useNavigate } from "react-router-dom";
+import Navbar from "../Navbar";
+
+import "./login.scss";
+import { setUser } from "../../redux/userSlice";
 
 const Login = () => {
+  const user = useSelector((state) => state.user);
   const [userData, setUserData] = useState({});
-
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [validSubmit, setValidSubmit] = useState(false);
-
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       if (validSubmit) {
-        console.log(userData);
+        dispatch(showLoading());
+
         const response = await axios.post(
           "http://localhost:5000/api/user/login",
           userData
         );
-
+        dispatch(hideLoading());
         if (response.data.success) {
-          console.log(response);
+          console.log(response.data);
           toast.success(response.data.massage);
           localStorage.setItem("token", response.data.data);
+          navigate("/");
         } else {
           console.log(response);
           toast.error(response.data.massage);
         }
       } else toast.error("Molimo vas unesite ispravne podatke");
     } catch (error) {
+      dispatch(hideLoading());
       toast.error(response.data.massage);
       console.log(error);
     }
@@ -71,34 +82,43 @@ const Login = () => {
   useEffect(() => {
     validateInputs();
   }, [userData]);
+  useEffect(() => {
+    dispatch(setUser(null));
+    localStorage.clear();
+  }, []);
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Prijavi se</h2>
+    <div>
+      <Navbar />
+      <div className="login">
+        <form onSubmit={handleSubmit}>
+          <h2>Prijavi se</h2>
 
-      <div className="emailPasInputsDiv">
-        <input
-          type="email"
-          placeholder="Email adresa"
-          name="email"
-          onChange={onChangeInput}
-        />
+          <div className="emailPasInputsDiv">
+            <input
+              type="email"
+              placeholder="Email adresa"
+              name="email"
+              onChange={onChangeInput}
+            />
 
-        <span>{emailError}</span>
+            <span>{emailError}</span>
+          </div>
+          <div className="emailPasInputsDiv">
+            <input
+              type="password"
+              placeholder="Unesite šifru"
+              name="password"
+              onChange={onChangeInput}
+            />
+
+            <span>{passwordError}</span>
+          </div>
+
+          <button>Prijavi se</button>
+          <Link to={"/registracija"}>Napravi svoj nalog</Link>
+        </form>
       </div>
-      <div className="emailPasInputsDiv">
-        <input
-          type="password"
-          placeholder="Unesite šifru"
-          name="password"
-          onChange={onChangeInput}
-        />
-
-        <span>{passwordError}</span>
-      </div>
-
-      <button>Prijavi se</button>
-      <Link to={"/registracija"}>Napravi svoj nalog</Link>
-    </form>
+    </div>
   );
 };
 

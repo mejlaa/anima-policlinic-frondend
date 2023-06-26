@@ -3,14 +3,15 @@ import "./style.scss";
 import { Link } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { user } = useSelector((state) => state.user);
   const getData = async () => {
     try {
       const response = await axios.post(
         "http://localhost:5000/api/user/get-user-info-by-id",
-        {}, //zbog cega nije bilo potrebno da payload bude prazan kod login i register rute
-        //je l to zbog authMiddleweare??
+        {}, //??
 
         {
           headers: {
@@ -18,11 +19,11 @@ const Navbar = () => {
           },
         }
       );
-      console.log(response.data);
     } catch (error) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getData();
   }, []);
@@ -33,7 +34,7 @@ const Navbar = () => {
         <nav className="menu-item1">
           <ul>
             <li>
-              <a href="#">Pocetna</a>
+              <Link to={"/"}>Početna</Link>
             </li>
             <li>
               <Link to={"/onama"}>O nama</Link>
@@ -41,6 +42,7 @@ const Navbar = () => {
             <li>
               <Link to={"/usluge"}>Usluge</Link>
             </li>
+
             <li>
               <a href="#">Lekari</a>
             </li>
@@ -48,19 +50,43 @@ const Navbar = () => {
             <li>
               <a href="#">Kontakt</a>
             </li>
+            <li>
+              {user?.isAdmin ? null : localStorage.getItem("token") ? (
+                <Link to={"/zakazivanje"}>Zakaži termin</Link>
+              ) : (
+                <Link to={"/prijava"}>Zakaži termin</Link>
+              )}
+            </li>
+            <li>
+              {user?.isAdmin ? null : localStorage.getItem("token") ? (
+                <Link to={"/apliciranje"}>Apliciraj za posao</Link>
+              ) : (
+                <Link to={"/prijava"}>Apliciraj za posao</Link>
+              )}
+            </li>
           </ul>
         </nav>
       </div>
 
       <div className="menu-item2">
-        <Link className={"navLink"} to={"/korisnici"}>
-          Kontrolna tabla
-        </Link>
-        <Link to={"/prijava"}>
-          <button>
-            <p>Prijavi se </p>
-          </button>
-        </Link>
+        {user?.isAdmin ? (
+          <Link className={"navLink"} to={"/korisnici"}>
+            Kontrolna tabla
+          </Link>
+        ) : null}
+        {user ? (
+          <Link to={"/prijava"}>
+            <button>
+              <p>Odjavi se </p>
+            </button>
+          </Link>
+        ) : (
+          <Link to={"/prijava"}>
+            <button>
+              <p>Prijavi se </p>
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );

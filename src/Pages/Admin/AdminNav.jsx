@@ -1,12 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./admin.scss";
+import { useSelector } from "react-redux";
 
 const AdminNav = () => {
+  const { user } = useSelector((state) => state.user);
+
   return (
     <div className="WorkSpaceMeniDiv">
       <div className="AdminMeniTitle">
-        <h3>Admin</h3>
+        <div>
+          <h3>Admin</h3>
+          <h4>{user?.firstName}</h4>
+        </div>
         <p>Control panel</p>
       </div>
       <div className="WorkSpaceMeni">

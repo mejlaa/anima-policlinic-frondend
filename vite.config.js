@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react(), reactRefresh()],
   resolve: {
     alias: {
-      "react-redux": "@reduxjs/toolkit",
+      "react-redux": "react-redux",
     },
   },
 });

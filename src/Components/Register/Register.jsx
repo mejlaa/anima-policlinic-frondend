@@ -2,38 +2,46 @@ import { useEffect, useState } from "react";
 import "./register.scss";
 import axios from "axios";
 import toast from "react-hot-toast";
-
+import { useDispatch } from "react-redux";
+import { showLoading, hideLoading } from "../../redux/alertsSlice";
+import { useNavigate } from "react-router-dom";
 const Register = () => {
   const [userData, setUserData] = useState({});
-
   const [firstNameError, setFirstNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
   const [validSubmit, setValidSubmit] = useState(false);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
       if (validSubmit) {
+        dispatch(showLoading());
+
         console.log(userData);
         const response = await axios.post(
           "http://localhost:5000/api/user/register",
           userData
         );
 
+        dispatch(hideLoading());
+
         if (response.data.success) {
           console.log(response);
           toast.success(response.data.massage);
+          navigate("/prijava");
         } else {
           console.log(response);
           toast.error(response.data.massage);
         }
       } else toast.error("Molimo vas unesite ispravne podatke");
     } catch (error) {
+      dispatch(hideLoading());
+
       toast.error(response.data.massage);
       console.log(error);
     }
@@ -102,7 +110,6 @@ const Register = () => {
       setConfirmPassword(e.target.value);
     }
   };
-
   return (
     <div className="register">
       <form onSubmit={handleSubmit}>
@@ -163,6 +170,7 @@ const Register = () => {
         </div>
         <button>Registruj se</button>
       </form>
+      <br />
     </div>
   );
 };
