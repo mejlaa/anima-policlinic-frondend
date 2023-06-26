@@ -1,6 +1,7 @@
 import React from "react";
-
 import "./style.scss";
+import { Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -10,11 +11,18 @@ const Navbar = () => {
         <nav className="menu-item1">
           <ul>
             <li>
-              <a href="#">Početna</a>
+              <a href="#">Pocetna</a>
             </li>
             <li>
-              <a href="#">O nama</a>
+              <Link to={"/aboutUs"}>O nama</Link>
             </li>
+            <li>
+              <Link to={"/usluge"}>Usluge</Link>
+            </li>
+            <li>
+              <a href="#">Lekari</a>
+            </li>
+
             <li>
               <a href="#">Kontakt</a>
             </li>
@@ -23,6 +31,10 @@ const Navbar = () => {
       </div>
 
       <div className="menu-item2">
+        <Link className={"navLink"} to={"/korisnici"}>
+          Kontrolna tabla
+        </Link>
+       
         <button>
           <a href="#">Prijavi se</a>
         </button>

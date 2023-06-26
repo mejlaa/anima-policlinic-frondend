@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "./usluge.scss";
+import Footer from "../../Components/Footer/Footer";
+import Navbar from "../../Components/Navbar";
+
 const Usluge = () => {
   const [psihoterapije, setPsihoterapije] = useState([
     {
@@ -160,36 +163,66 @@ const Usluge = () => {
 
   return (
     <div id="uslugeMain">
+      <Navbar />
       <div className="prvaSlikaUslugeDiv">
         <img src="uslugePrva.jpg" alt="aaa" />
         <h1>Usluge</h1>
       </div>
 
       <div className="TherapyClasses">
-        <a href="#PsihoterapijeDiv">
-          <div className="TerapyClassCard">
-            <img src="psihoterapija-usluge.png" alt="slika" />
-            <p>Psihoterapija</p>
-          </div>
-        </a>
-        <a href="#GrupnaAnalitičkaPsihoterpijaDiv">
-          <div className="TerapyClassCard">
-            <img src="psiholoski kabinet.png" alt="slika" />
-            <p>Grupna analitička psihoterpija</p>
-          </div>
-        </a>
-        <a href="#PorodičnaPsihoanalizaDiv">
-          <div className="TerapyClassCard">
-            <img src="psihijatrijaDece.png" alt="slika" />
-            <p>Porodična psihoanaliza</p>
-          </div>
-        </a>
-        <a href="#PsihijatrijaDeceDiv">
-          <div className="TerapyClassCard">
-            <img src="pedagosko.png" alt="slika" />
-            <p>Psihijatrija dece</p>
-          </div>
-        </a>
+        <div
+          className="TerapyClassCard"
+          onClick={() => {
+            const element = document.getElementById("PsihoterapijeDiv");
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          <img src="psihoterapija-usluge.png" alt="slika" />
+          <p>Psihoterapija</p>
+        </div>
+
+        <div
+          className="TerapyClassCard"
+          onClick={() => {
+            const element = document.getElementById(
+              "GrupnaAnalitičkaPsihoterpijaDiv"
+            );
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          <img src="psiholoski kabinet.png" alt="slika" />
+          <p>Grupna analitička psihoterpija</p>
+        </div>
+
+        <div
+          className="TerapyClassCard"
+          onClick={() => {
+            const element = document.getElementById("PorodičnaPsihoanalizaDiv");
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          <img src="psihijatrijaDece.png" alt="slika" />
+          <p>Porodična psihoanaliza</p>
+        </div>
+
+        <div
+          className="TerapyClassCard"
+          onClick={() => {
+            const element = document.getElementById("PsihijatrijaDeceDiv");
+            if (element) {
+              element.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
+          <img src="pedagosko.png" alt="slika" />
+          <p>Psihijatrija dece</p>
+        </div>
       </div>
 
       <div className="filterDiv">
@@ -389,6 +422,7 @@ const Usluge = () => {
           );
         })}
       </div>
+      <Footer />
     </div>
   );
 };

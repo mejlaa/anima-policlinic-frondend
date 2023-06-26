@@ -45,6 +45,7 @@ a {
       border-bottom: 2px solid white;
     }
     &:hover {
+      cursor: pointer;
       p {
         color: #377ba7;
         border-bottom: 2px solid #377ba7;
@@ -212,12 +213,14 @@ a {
         right: 30%;
         width: 20em;
         border-radius: 50%;
+        z-index: -1;
       }
       div {
         background-color: #377ba7;
         width: 80%;
         height: 15em;
         margin-bottom: -2em;
+        z-index: -2;
       }
     }
   }
@@ -255,12 +258,14 @@ a {
         left: 30%;
         width: 20em;
         border-radius: 50%;
+        z-index: -1;
       }
       div {
         background-color: #377ba7;
         width: 80%;
         height: 15em;
         margin-bottom: -2em;
+        z-index: -2;
       }
     }
   }
@@ -307,12 +312,14 @@ a {
         right: 30%;
         width: 20em;
         border-radius: 50%;
+        z-index: -1;
       }
       div {
         background-color: #377ba7;
         width: 80%;
         height: 15em;
         margin-bottom: -2em;
+        z-index: -2;
       }
     }
   }
@@ -350,12 +357,14 @@ a {
         left: 30%;
         width: 20em;
         border-radius: 50%;
+        z-index: -1;
       }
       div {
         background-color: #377ba7;
         width: 80%;
         height: 15em;
         margin-bottom: -2em;
+        z-index: -2;
       }
     }
   }
@@ -403,12 +412,14 @@ a {
         right: 30%;
         width: 20em;
         border-radius: 50%;
+        z-index: -1;
       }
       div {
         background-color: #377ba7;
         width: 80%;
         height: 15em;
         margin-bottom: -2em;
+        z-index: -2;
       }
     }
   }
@@ -446,12 +457,14 @@ a {
         left: 30%;
         width: 20em;
         border-radius: 50%;
+        z-index: -1;
       }
       div {
         background-color: #377ba7;
         width: 80%;
         height: 15em;
         margin-bottom: -2em;
+        z-index: -2;
       }
     }
   }
@@ -497,12 +510,14 @@ a {
         right: 30%;
         width: 20em;
         border-radius: 50%;
+        z-index: -1;
       }
       div {
         background-color: #377ba7;
         width: 80%;
         height: 15em;
         margin-bottom: -2em;
+        z-index: -2;
       }
     }
   }
@@ -540,12 +555,14 @@ a {
         left: 30%;
         width: 20em;
         border-radius: 50%;
+        z-index: -1;
       }
       div {
         background-color: #377ba7;
         width: 80%;
         height: 15em;
         margin-bottom: -2em;
+        z-index: -2;
       }
     }
   }

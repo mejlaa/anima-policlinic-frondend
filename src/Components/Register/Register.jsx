@@ -119,7 +119,7 @@ const Register = () => {
 
         <span>{confirmPasswordError}</span>
       </div>
-      <button>Register</button>
+      <button>Registruj se</button>
     </form>
   );
 };

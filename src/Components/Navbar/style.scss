@@ -46,29 +46,41 @@ body {
     }
   }
 
-  .menu-item2 button {
-    width: 130px;
-    height: 40px;
+  .menu-item2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: white;
-    border: 1px solid #18a0fb;
-    border-radius: 6px;
-    font-size: 15px;
-    margin-right: 10px;
-
-    a {
-      text-decoration: none;
+    .navLink {
+      text-decoration: none !important;
       color: #18a0fb;
-      font-size: 15px;
+      margin-right: 1em;
+      &:hover {
+        color: #1849fb;
+      }
     }
-  }
-
-  .menu-item2 button:hover {
-    border: 1px solid #1849fb;
-    a {
-      color: #1849fb;
+    button {
+      margin: auto;
+      width: 130px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+      border: 1px solid #18a0fb;
+      border-radius: 6px;
+      font-size: 15px;
+      margin-right: 10px;
+      &:hover {
+        border: 1px solid #1849fb;
+        a {
+          color: #1849fb;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: #18a0fb;
+        font-size: 15px;
+      }
     }
   }
 }
